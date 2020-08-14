@@ -1,0 +1,45 @@
+bootstrap_ip = "192.168.1.2"
+control_plane_ips = ["192.168.1.10","192.168.1.11","192.168.1.12"]
+compute_ips = ["192.168.1.20","192.168.1.21","192.168.1.22","192.168.1.23"]
+machine_cidr = "192.168.1.0/24"
+gateway_ip = "192.168.1.1"
+dns1_ip = "192.168.1.1"
+dns2_ip = "192.168.1.1"
+cluster_id = "ocp"
+cluster_domain = "ocpst.netw.us"
+base_domain = "netw.us"
+vsphere_server = "myserver.example.com"
+vsphere_user = "administrator@vsphere.local"
+vsphere_password = "secretpassword"
+vsphere_cluster = "Cluster1"
+vsphere_datacenter = "Datacenter1"
+vsphere_datastore = "Datastore1"
+vm_template = "rhcos-4.2.0-x86_64-vmware.ova"
+vm_network = "OCPNET"
+
+control_plane_count = 3
+control_plane_memory = 16384
+control_plane_num_cpus = 4
+control_plane_disk_size = 60
+compute_count = 4
+compute_memory = 16384
+compute_num_cpus = 4
+compute_disk_size = 80
+bootstrap_memory = 16384
+bootstrap_num_cpus = 4
+bootstrap_disk_size = 60
+
+bootstrap_prefix = "test_bootstrap_host-"
+control_plane_prefix = "test_control_plane-"
+compute_prefix = "test_compute_node-"
+
+bootstrap_ignition_url = "http://192.168.1.1:8901/bootstrap.ign"
+
+control_plane_ignition = <<END_OF_CONTROL_PLANE_IGNITION
+
+END_OF_CONTROL_PLANE_IGNITION
+
+compute_ignition = <<END_OF_COMPUTE_IGNITION
+
+END_OF_COMPUTE_IGNITION
+
