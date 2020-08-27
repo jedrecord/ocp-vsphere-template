@@ -28,10 +28,6 @@ variable "datastore" {
   type = string
 }
 
-variable "network" {
-  type = string
-}
-
 variable "cluster_domain" {
   type = string
 }
@@ -80,5 +76,9 @@ variable "dns1_ip" {
 }
 
 variable "dns2_ip" {
+  type = string
+}
+
+variable "portgroup_id" {
   type = string
 }

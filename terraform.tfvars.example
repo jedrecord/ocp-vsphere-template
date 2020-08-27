@@ -15,7 +15,7 @@ vsphere_cluster = "Cluster1"
 vsphere_datacenter = "Datacenter1"
 vsphere_datastore = "Datastore1"
 vm_template = "rhcos-4.2.0-x86_64-vmware.ova"
-vm_network = "OCPNET"
+compute_portgroup = "ocp"
 
 control_plane_count = 3
 control_plane_memory = 16384

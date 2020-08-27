@@ -1,7 +1,4 @@
-//////
-// vSphere variables
-//////
-
+# vSphere config
 variable "vsphere_server" {
   type        = string
   description = "This is the vSphere server for the environment."
@@ -43,6 +40,12 @@ variable "vm_network" {
   default     = "VM Network"
 }
 
+variable "compute_portgroup" {
+  type        = string
+  description = "This is the name of the distributed portgroup for the internal network"
+  default     = "compute_network"
+}
+
 variable "ipam" {
   type        = string
   description = "The IPAM server to use for IP management."
@@ -55,10 +58,7 @@ variable "ipam_token" {
   default     = ""
 }
 
-/////////
-// OpenShift cluster variables
-/////////
-
+# OpenShift cluster config
 variable "cluster_id" {
   type        = string
   description = "This cluster id must be of max length 27 and must have only alphanumeric or hyphen characters."
@@ -90,10 +90,7 @@ variable "dns2_ip" {
   type = string
 }
 
-/////////
-// Bootstrap machine variables
-/////////
-
+# Bootstrap vm
 variable "bootstrap_prefix" {
   type    = string
   default = "bootstrap"
@@ -128,10 +125,7 @@ variable "bootstrap_disk_size" {
   default = "60"
 }
 
-///////////
-// Control Plane machine variables
-///////////
-
+# Control_Plane vms
 variable "control_plane_prefix" {
   type    = string
   default = "control_plane"
@@ -166,10 +160,7 @@ variable "control_plane_disk_size" {
   default = "60"
 }
 
-//////////
-// Compute machine variables
-//////////
-
+# Compute vms
 variable "compute_prefix" {
   type    = string
   default = "compute"
@@ -204,3 +195,13 @@ variable "compute_disk_size" {
   default = "80"
 }
 
+# Distributed Switch
+variable "esxi_hosts" {
+  type    = list(string)
+  default = []
+}
+
+variable "esxi_interfaces" {
+  type    = list(string)
+  default = []
+}

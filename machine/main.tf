@@ -3,11 +3,6 @@ data "vsphere_datastore" "datastore" {
   datacenter_id = var.datacenter_id
 }
 
-data "vsphere_network" "network" {
-  name          = var.network
-  datacenter_id = var.datacenter_id
-}
-
 data "vsphere_virtual_machine" "template" {
   name          = var.template
   datacenter_id = var.datacenter_id
@@ -29,7 +24,7 @@ resource "vsphere_virtual_machine" "vm" {
   wait_for_guest_net_routable = "false"
 
   network_interface {
-    network_id = data.vsphere_network.network.id
+    network_id = var.portgroup_id
   }
 
   disk {
