@@ -15,7 +15,7 @@ data "vsphere_compute_cluster" "compute_cluster" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-data "vsphere_host" "host" {
+data "vsphere_host" "hosts" {
   count         = length(var.esxi_hosts)
   name          = var.esxi_hosts[count.index]
   datacenter_id = data.vsphere_datacenter.dc.id
@@ -41,24 +41,13 @@ resource "vsphere_distributed_virtual_switch" "dvs" {
   active_uplinks  = ["uplink1", "uplink2"]
   standby_uplinks = ["uplink3", "uplink4"]
 
-  host {
-    host_system_id = data.vsphere_host.host.0.id
-    devices        = var.esxi_interfaces
-  }
+  dynamic "host" {
+    for_each = var.esxi_hosts
 
-  host {
-    host_system_id = data.vsphere_host.host.1.id
-    devices        = var.esxi_interfaces
-  }
-
-  host {
-    host_system_id = data.vsphere_host.host.2.id
-    devices        = var.esxi_interfaces
-  }
-
- host {
-    host_system_id = data.vsphere_host.host.3.id
-    devices        = var.esxi_interfaces
+    content {
+      host_system_id = data.vsphere_host.hosts[host.key].id
+      devices   = var.esxi_interfaces
+    }
   }
 }
 
@@ -82,8 +71,6 @@ module "bootstrap" {
   datacenter_id    = data.vsphere_datacenter.dc.id
   template         = var.vm_template
   cluster_domain   = var.cluster_domain
-  ipam             = var.ipam
-  ipam_token       = var.ipam_token
   gateway_ip       = var.gateway_ip
   dns1_ip          = var.dns1_ip
   dns2_ip          = var.dns2_ip
@@ -107,8 +94,6 @@ module "control_plane" {
   datacenter_id    = data.vsphere_datacenter.dc.id
   template         = var.vm_template
   cluster_domain   = var.cluster_domain
-  ipam             = var.ipam
-  ipam_token       = var.ipam_token
   gateway_ip       = var.gateway_ip
   dns1_ip          = var.dns1_ip
   dns2_ip          = var.dns2_ip
@@ -132,8 +117,6 @@ module "compute" {
   datacenter_id    = data.vsphere_datacenter.dc.id
   template         = var.vm_template
   cluster_domain   = var.cluster_domain
-  ipam             = var.ipam
-  ipam_token       = var.ipam_token
   gateway_ip       = var.gateway_ip
   dns1_ip          = var.dns1_ip
   dns2_ip          = var.dns2_ip

@@ -46,16 +46,10 @@ variable "compute_portgroup" {
   default     = "compute_network"
 }
 
-variable "ipam" {
-  type        = string
-  description = "The IPAM server to use for IP management."
-  default     = ""
-}
-
-variable "ipam_token" {
-  type        = string
-  description = "The IPAM token to use for requests."
-  default     = ""
+variable "compute_vlan_id" {
+  description = "vSphere portgroup VLAN ID between 1000 and 3000"
+  type = number
+  default = 1033
 }
 
 # OpenShift cluster config

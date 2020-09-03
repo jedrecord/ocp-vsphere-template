@@ -16,6 +16,7 @@ vsphere_datacenter = "Datacenter1"
 vsphere_datastore = "Datastore1"
 vm_template = "rhcos-4.2.0-x86_64-vmware.ova"
 compute_portgroup = "ocp"
+compute_vlan_id = 1033
 
 control_plane_count = 3
 control_plane_memory = 16384
