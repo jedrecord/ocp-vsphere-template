@@ -111,12 +111,12 @@ variable "bootstrap_num_cpus" {
 
 variable "bootstrap_memory" {
   type    = string
-  default = "8192"
+  default = "16384"
 }
 
 variable "bootstrap_disk_size" {
   type    = string
-  default = "60"
+  default = "120"
 }
 
 # Control_Plane vms
@@ -141,17 +141,17 @@ variable "control_plane_ips" {
 
 variable "control_plane_num_cpus" {
   type    = string
-  default = "4"
+  default = "8"
 }
 
 variable "control_plane_memory" {
   type    = string
-  default = "16384"
+  default = "24576"
 }
 
 variable "control_plane_disk_size" {
   type    = string
-  default = "60"
+  default = "120"
 }
 
 # Compute vms
@@ -176,17 +176,17 @@ variable "compute_ips" {
 
 variable "compute_num_cpus" {
   type    = string
-  default = "4"
+  default = "8"
 }
 
 variable "compute_memory" {
   type    = string
-  default = "16384"
+  default = "32768"
 }
 
 variable "compute_disk_size" {
   type    = string
-  default = "80"
+  default = "120"
 }
 
 # Distributed Switch
