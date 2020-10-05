@@ -1,3 +1,6 @@
+[![Terraform version](https://img.shields.io/badge/Terraform-0.12-623CE4?logo=Terraform)](https://github.com/jedrecord/ocp-vsphere-template)
+[![OpenShift version](https://img.shields.io/badge/OpenShift-v4.4-EE0000?logo=Red-Hat-Open-Shift)](https://github.com/jedrecord/ocp-vsphere-template)
+
 # ocp-vsphere-template
 Terraform template for installing OpenShift on vSphere using on-premise hardware
 
