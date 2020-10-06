@@ -1,4 +1,5 @@
-[![Terraform version](https://img.shields.io/badge/Terraform-0.12-623CE4?logo=Terraform)](https://github.com/jedrecord/ocp-vsphere-template)
+[![Terraform version](https://img.shields.io/badge/Terraform-0.12-623CE4?logo=Terraform)](https://www.terraform.io/docs/index.html)
+[![vSphere version](https://img.shields.io/badge/vsphere%20provider-v1.23-623CE4)](https://registry.terraform.io/providers/hashicorp/vsphere/latest/docs)
 [![OpenShift version](https://img.shields.io/badge/OpenShift-v4.4-EE0000?logo=Red-Hat-Open-Shift)](https://github.com/jedrecord/ocp-vsphere-template)
 
 # ocp-vsphere-template
